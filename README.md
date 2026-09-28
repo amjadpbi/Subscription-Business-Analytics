@@ -17,7 +17,7 @@ The repository includes Python code for synthetic dataset generation, SQL schema
 ## Data
 - Source type: synthetic CSV data generated in Python
 - Data nature: simulated subscription business dataset
-- Key files: nutre_dataset_generator.py, nutre_schema.sql, Meals_EDA.sql, Data/*.csv, SubscriptionBI.pbix
+- Key files: brightbowl_dataset_generator.py, brightbowl_schema.sql, Meals_EDA.sql, Data/*.csv, SubscriptionBI.pbix
 
 ## Technical Approach
 - generate synthetic subscription data in Python
@@ -41,8 +41,8 @@ The repository includes the synthetic data generation script, SQL schema, analys
 - educational prototype scope
 
 ## Repository Structure
-- nutre_dataset_generator.py — data generation logic
-- nutre_schema.sql — database schema definition
+- brightbowl_dataset_generator.py — data generation logic
+- brightbowl_schema.sql — database schema definition
 - Meals_EDA.sql — analytical SQL exploration
 - Data/ — generated data tables
 - SubscriptionBI.pbix — Power BI prototype
