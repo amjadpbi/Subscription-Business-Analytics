@@ -1,5 +1,5 @@
 -- ============================================================
--- NUTRE MEALS BI — DATABASE SCHEMA
+-- BRIGHTBOWL MEALS BI — DATABASE SCHEMA
 -- SQL Server (SSMS)
 -- Run this entire script before importing any CSV file
 -- ============================================================
@@ -15,10 +15,10 @@
 -- ============================================================
 -- CREATE DATABASE
 -- ============================================================
-CREATE DATABASE NutreMealsBI
+CREATE DATABASE BrightBowlMealsBI
 GO
 
-USE NutreMealsBI
+USE BrightBowlMealsBI
 GO
 
 
