@@ -1,5 +1,5 @@
 # ============================================================
-# NUTRE MEALS — SUBSCRIPTION BI DATASET GENERATOR
+# BRIGHTBOWL MEALS — SUBSCRIPTION BI DATASET GENERATOR
 # Google Colab | Python 3
 # Portfolio Project: Power BI Subscription Analytics
 # Dataset: Jan 2023 to Dec 2024 | 104 Weeks
@@ -9,7 +9,7 @@
 #   DimDate.csv                — 104 weekly periods with business flags
 #   DimPlan.csv                — Meal plan tiers with pricing
 #   DimDeliveryChannel.csv     — Hand Delivery, Shipping, B2B
-#   DimAcquisitionChannel.csv  — How subscribers found Nutre
+#   DimAcquisitionChannel.csv  — How subscribers found BrightBowl
 #   DimSubscriber.csv          — All subscribers with attributes
 #   FactSubscriptionWeekly.csv — One row per subscriber per week
 #   FactMarketingSpend.csv     — Weekly spend by acquisition channel
@@ -30,7 +30,7 @@
 #   Hand delivery retention    — Personal service = stickier customers
 #   Meal preference retention  — Plant Based/Diabetic stay longer
 #   Passive churn              — 8 consecutive skips = account closed
-#   First 3 weeks discount     — $40 off promo (real Nutre offer)
+#   First 3 weeks discount     — $40 off promo (real BrightBowl offer)
 #   Marketing spend growth     — Higher spend in 2024 vs 2023
 #
 # IMPORT ORDER INTO SQL SERVER:
@@ -60,13 +60,13 @@ DATASET_START = datetime(2023, 1, 1)
 TOTAL_WEEKS   = 104
 
 print("=" * 55)
-print("  NUTRE MEALS — SUBSCRIPTION DATASET GENERATOR")
+print("  BRIGHTBOWL MEALS — SUBSCRIPTION DATASET GENERATOR")
 print("=" * 55)
 
 
 # ============================================================
 # SECTION 2: DIM DATE
-# Weekly grain — Nutre operates on weekly subscription cycle
+# Weekly grain — BrightBowl operates on weekly subscription cycle
 # Wednesday 11:59 PM is the weekly order cutoff
 # ============================================================
 def generate_dim_date():
@@ -111,7 +111,7 @@ def generate_dim_date():
 
 # ============================================================
 # SECTION 3: DIM PLAN
-# Based on Nutre's actual plan range: 5 to 20 meals per week
+# Based on BrightBowl's actual plan range: 5 to 20 meals per week
 # Volume discount: more meals = lower price per meal
 # B2B corporate is a separate tier — office delivery accounts
 # ============================================================
@@ -136,7 +136,7 @@ def generate_dim_plan():
 
 # ============================================================
 # SECTION 4: DIM DELIVERY CHANNEL
-# Based on Nutre's actual operations confirmed from website
+# Based on BrightBowl's actual operations confirmed from website
 # Hand delivery: personal drivers in Northeast
 # National shipping: FedEx / OnTrac across US
 # B2B: corporate office accounts
@@ -157,7 +157,7 @@ def generate_dim_delivery_channel():
 
 # ============================================================
 # SECTION 5: DIM ACQUISITION CHANNEL
-# How subscribers found Nutre
+# How subscribers found BrightBowl
 # EstimatedCAC: cost to acquire one subscriber (USD)
 # LTVMultiplier: relative LTV vs average subscriber
 #
@@ -168,7 +168,7 @@ def generate_dim_delivery_channel():
 #   Gift subscriptions = low LTV, different retention curve
 #
 # Enthusiast Program = gym owners / personal trainers in
-# Boston area who refer clients (real Nutre program)
+# Boston area who refer clients (real BrightBowl program)
 # ============================================================
 def generate_dim_acquisition_channel():
     channels = [
@@ -192,14 +192,14 @@ def generate_dim_acquisition_channel():
 # SECTION 6: DIM SUBSCRIBER
 # ============================================================
 
-# States by delivery type (based on Nutre's Northeast focus)
+# States by delivery type (based on BrightBowl's Northeast focus)
 HAND_DELIVERY_STATES   = ['MA', 'CT', 'RI', 'NH', 'NY', 'NJ']
 NATIONAL_SHIP_STATES   = ['CA', 'TX', 'FL', 'IL', 'PA', 'OH',
                            'GA', 'NC', 'MI', 'AZ', 'WA', 'CO',
                            'TN', 'MN', 'OR', 'VA', 'MD', 'NV']
 B2B_STATES             = ['MA', 'NY', 'CT']
 
-# Three primary plan types from Nutre website
+# Three primary plan types from BrightBowl website
 # Dietary filters are separate flags on the subscriber
 MEAL_PREFERENCES       = ['Balance', 'Weight Loss', 'Plant Based', 'Diabetic Friendly']
 MEAL_PREF_WEIGHTS      = [0.40, 0.35, 0.15, 0.10]
@@ -217,7 +217,7 @@ def build_subscriber(sub_id, join_week_id, is_existing=False, date_lookup=None):
     Generate one subscriber with realistic attributes.
 
     is_existing = True means this subscriber joined before Jan 2023.
-    Nutre was founded 2017. By Jan 2023 they have 450 active subscribers.
+    BrightBowl was founded 2017. By Jan 2023 they have 450 active subscribers.
     We back-date their join date but start tracking them from week 1.
 
     TenureWeeksAtStart tells the fact generator how experienced
@@ -295,7 +295,7 @@ def build_subscriber(sub_id, join_week_id, is_existing=False, date_lookup=None):
 def new_subscribers_this_week(week_row, year_offset):
     """
     How many new subscribers join each week.
-    Driven by real Nutre business patterns.
+    Driven by real BrightBowl business patterns.
     Year 2 (2024) has more subscribers as brand grows.
     year_offset: 1.0 for 2023, 1.3 for 2024
     """
@@ -496,7 +496,7 @@ def generate_fact_table(dim_subscribers, dim_date, dim_plan):
                             consecutive_skips = 0
 
             # Revenue: zero if skipped or churned
-            # First 3 weeks get $40 discount (real Nutre promo)
+            # First 3 weeks get $40 discount (real BrightBowl promo)
             if status in ['New', 'Active']:
                 discount = 40.00 if weeks_in_dataset <= 3 else 0.00
                 revenue  = round(weekly_price - discount, 2)
@@ -610,7 +610,7 @@ subscribers = []
 sub_id      = 1
 
 # EXISTING BASE: 450 subscribers already active when 2023 begins
-# Nutre founded 2017 — by Jan 2023 they have an established customer base
+# BrightBowl founded 2017 — by Jan 2023 they have an established customer base
 # These subscribers have varied tenures: some 6 months, some 5 years
 print("  Creating existing subscriber base (450 subscribers)...")
 for _ in range(450):
@@ -717,7 +717,7 @@ print(f"    FactSubscriptionWeekly.csv — {len(fact_subscription)} rows")
 
 print("\n  NEXT STEPS:")
 print("  1. Download all 6 CSV files from Colab (Files panel on left)")
-print("  2. Create database NutreMealsBI in SQL Server")
+print("  2. Create database BrightBowlMealsBI in SQL Server")
 print("  3. Import CSVs in the order listed at top of this script")
 print("  4. Write SQL queries to validate patterns before opening Power BI")
 print("  5. Key SQL exercises: cohort analysis, MRR, churn rate, LTV")
