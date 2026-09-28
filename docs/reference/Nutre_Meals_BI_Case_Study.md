@@ -1,9 +1,9 @@
-# Nutre Meals — Subscription BI Case Study
+# BrightBowl Meals — Subscription BI Case Study
 ## Project Context for Claude
 
 **Built by:** Muhammad Amjad — Power BI Specialist  
 **Project type:** Portfolio project targeting subscription business sector  
-**Primary target:** Nutre Meals (gonutre.com) — open Upwork project, posted 3 months ago, no hire shown  
+**Primary target:** BrightBowl Meals (fictional portfolio business) — open Upwork project, posted 3 months ago, no hire shown  
 **Secondary value:** Reusable for any subscription business client going forward  
 **Stack:** Python (Google Colab) → SQL Server (SSMS) → Power BI Desktop  
 **Status:** Dataset generated. SQL schema and import next. Executive Overview page first.
@@ -12,19 +12,19 @@
 
 ## Why This Project Exists
 
-An Upwork job post from Nutre Meals (a subscription meal delivery company in Massachusetts, USA) has been open for three months with no hire. Client stats are strong: 5.0 rating, 17 reviews, 100% hire rate, $26K spent, $41/hr average paid. The job requires a BI developer to build four dashboards from scratch, starting with an Executive Overview as a paid proof of concept.
+An Upwork job post from BrightBowl Meals (a subscription meal delivery company in Massachusetts, USA) has been open for three months with no hire. Client stats are strong: 5.0 rating, 17 reviews, 100% hire rate, $26K spent, $41/hr average paid. The job requires a BI developer to build four dashboards from scratch, starting with an Executive Overview as a paid proof of concept.
 
-The strategy: build a working Executive Overview demo using simulated Nutre data before submitting a proposal. A working demo breaks through where proposals do not. If Nutre responds, good. If not, the project stands as a portfolio piece for the subscription business sector — a large and growing market beyond the original franchise and retail niche.
+The strategy: build a working Executive Overview demo using simulated BrightBowl data before submitting a proposal. A working demo breaks through where proposals do not. If BrightBowl responds, good. If not, the project stands as a portfolio piece for the subscription business sector — a large and growing market beyond the original franchise and retail niche.
 
 This project also deliberately expands the positioning from "franchise and retail BI" to problem-based framing: "I help businesses replace manual reporting with automated BI solutions." Subscription businesses, franchise operations, and retail all share the same core pain. The industry is secondary. The problem is the positioning.
 
 ---
 
-## About Nutre Meals
+## About BrightBowl Meals
 
-**Website:** gonutre.com  
+**Website:** fictional portfolio business  
 **Founded:** 2017 by the Perrina Brothers in Peabody, Massachusetts  
-**Origin story:** Founded after their father's diabetes diagnosis. Clean eating transformed his health. They built Nutre to share that with others.  
+**Origin story:** Founded after their father's diabetes diagnosis. Clean eating transformed his health. They built BrightBowl to share that with others.  
 **Model:** Weekly subscription meal delivery. Fresh, never frozen. Chef-prepared, dietician-approved.  
 **Menu:** 50+ rotating meals and snacks per week  
 **Delivery:** Two channels. Hand delivery in the Northeast (personal drivers). National shipping via FedEx and OnTrac for the rest of the US.  
@@ -79,15 +79,15 @@ This project also deliberately expands the positioning from "franchise and retai
 
 ### Why 2023 to 2024 (not 9 years)
 
-Nutre was founded 2017. Using 9 years of data would require simulating an early-stage startup with 30 subscribers and no national shipping. That era has fundamentally different business characteristics. The dashboard answers current operational questions, not historical archaeology.
+BrightBowl was founded 2017. Using 9 years of data would require simulating an early-stage startup with 30 subscribers and no national shipping. That era has fundamentally different business characteristics. The dashboard answers current operational questions, not historical archaeology.
 
-By January 2023, Nutre is an established regional business. The dataset starts with 450 existing active subscribers, reflecting 6 years of real-world growth. Their tenure is back-dated realistically (3 months to 5 years before 2023).
+By January 2023, BrightBowl is an established regional business. The dataset starts with 450 existing active subscribers, reflecting 6 years of real-world growth. Their tenure is back-dated realistically (3 months to 5 years before 2023).
 
 Two full years (104 weeks) gives two complete January spikes, two full seasonal cycles, and enough cohort history to show 12-month retention curves. That is sufficient for every metric the job post requires.
 
 ### Why weekly time grain (not daily or monthly)
 
-Nutre operates on a weekly cycle. Every subscriber has a status every week: new, active, skipped, or churned. Daily grain adds no analytical value because nothing meaningful happens at the daily level for subscriptions. Monthly grain loses the skip signal — the most important leading indicator of churn. Weekly grain captures everything.
+BrightBowl operates on a weekly cycle. Every subscriber has a status every week: new, active, skipped, or churned. Daily grain adds no analytical value because nothing meaningful happens at the daily level for subscriptions. Monthly grain loses the skip signal — the most important leading indicator of churn. Weekly grain captures everything.
 
 MRR is a monthly metric but is calculated from weekly data in Power BI using DAX. One measure, not a separate table.
 
@@ -245,7 +245,7 @@ This is why skip rate belongs on the Executive Overview. It is not just a servic
 - Week 52 onward: 0.8% per week (loyal core)
 
 **First 3 weeks discount**
-DiscountAmount = $40 for the first 3 active weeks. This is Nutre's real promo offer. In CAC calculation, the discount is part of the cost of acquiring that subscriber.
+DiscountAmount = $40 for the first 3 active weeks. This is BrightBowl's real promo offer. In CAC calculation, the discount is part of the cost of acquiring that subscriber.
 
 ---
 
@@ -363,14 +363,14 @@ Run in this exact sequence to avoid foreign key conflicts:
 
 | File | Purpose |
 |------|---------|
-| nutre_dataset_generator.py | Run in Google Colab to generate all 6 CSV files |
+| brightbowl_dataset_generator.py | Run in Google Colab to generate all 6 CSV files |
 | DimDate.csv | 104 weekly periods with business flags |
 | DimPlan.csv | Meal plan tiers and pricing |
 | DimDeliveryChannel.csv | 3 delivery types |
 | DimAcquisitionChannel.csv | 6 acquisition channels with CAC and LTV data |
 | DimSubscriber.csv | 2,206 subscribers with attributes |
 | FactSubscriptionWeekly.csv | 81,070 rows of weekly subscriber events |
-| Nutre_Meals_BI_Case_Study.md | This document |
+| BrightBowl_BI_Case_Study.md | This document |
 
 ---
 
@@ -387,10 +387,10 @@ This project adds subscription business analytics to the portfolio alongside the
 **Portfolio projects:**
 1. Franchise bakery pipeline — messy legacy CSV, automated Power Query, operational reporting
 2. Retail multi-category BI — SQL Server star schema, supplier intelligence, inventory alerts
-3. Nutre Meals subscription BI — MRR, churn, LTV, CAC, cohort analysis
+3. BrightBowl Meals subscription BI — MRR, churn, LTV, CAC, cohort analysis
 
 **Target with this project:**
-- Primary: Nutre Meals Upwork proposal (start with "The secret ingredient is data")
+- Primary: BrightBowl Meals Upwork proposal (start with "The secret ingredient is data")
 - Secondary: Any subscription business on Upwork or LinkedIn — SaaS, subscription boxes, membership services, food delivery
 
 ---
@@ -405,4 +405,4 @@ This project adds subscription business analytics to the portfolio alongside the
 6. Connect Power BI to SQL Server
 7. Build Executive Overview page
 8. Write case study narrative in own voice
-9. Share with Nutre via LinkedIn DM or Upwork proposal
+9. Share with BrightBowl via LinkedIn DM or Upwork proposal
