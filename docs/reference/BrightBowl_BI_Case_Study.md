@@ -1,79 +1,61 @@
 # BrightBowl Meals — Subscription BI Case Study
-## Project Context for Claude
+## Project Context
 
-**Built by:** Muhammad Amjad — Power BI Specialist  
-**Project type:** Portfolio project targeting subscription business sector  
-**Primary target:** BrightBowl Meals (fictional portfolio business) — open Upwork project, posted 3 months ago, no hire shown  
-**Secondary value:** Reusable for any subscription business client going forward  
+**Built by:** Muhammad Amjad  
+**Project type:** Self-initiated portfolio project for subscription business analytics  
+**Business identity:** BrightBowl Meals is a fictionalized portfolio business; it does not represent a real client or company  
 **Stack:** Python (Google Colab) → SQL Server (SSMS) → Power BI Desktop  
-**Status:** Dataset generated. SQL schema and import next. Executive Overview page first.
+**Status:** Dataset generated. SQL schema, analysis, and Power BI reporting prototype included.
 
 ---
 
 ## Why This Project Exists
 
-An Upwork job post from BrightBowl Meals (a subscription meal delivery company in Massachusetts, USA) has been open for three months with no hire. Client stats are strong: 5.0 rating, 17 reviews, 100% hire rate, $26K spent, $41/hr average paid. The job requires a BI developer to build four dashboards from scratch, starting with an Executive Overview as a paid proof of concept.
+This project was created to demonstrate how subscription-business data can be modeled, validated, analyzed, and turned into a reporting layer. The business scenario is intentionally fictionalized so the portfolio can demonstrate the analytical workflow without exposing the identity of the real-world inspiration behind the original exercise.
 
-The strategy: build a working Executive Overview demo using simulated BrightBowl data before submitting a proposal. A working demo breaks through where proposals do not. If BrightBowl responds, good. If not, the project stands as a portfolio piece for the subscription business sector — a large and growing market beyond the original franchise and retail niche.
+The project focuses on the questions a subscription business needs to answer:
 
-This project also deliberately expands the positioning from "franchise and retail BI" to problem-based framing: "I help businesses replace manual reporting with automated BI solutions." Subscription businesses, franchise operations, and retail all share the same core pain. The industry is secondary. The problem is the positioning.
+- How is recurring revenue changing?
+- Where are subscribers being acquired?
+- Which subscribers are staying, skipping, or churning?
+- How do acquisition channels, plans, and delivery channels differ?
+- What can cohort and lifecycle analysis reveal about retention?
+
+The goal is not to claim live business impact. The value of the project is the analytical implementation: synthetic data generation, SQL validation and analysis, window-function logic, star-schema modeling, and Power BI reporting.
 
 ---
 
 ## About BrightBowl Meals
 
-**Website:** fictional portfolio business  
-**Founded:** 2017 by the Perrina Brothers in Peabody, Massachusetts  
-**Origin story:** Founded after their father's diabetes diagnosis. Clean eating transformed his health. They built BrightBowl to share that with others.  
-**Model:** Weekly subscription meal delivery. Fresh, never frozen. Chef-prepared, dietician-approved.  
-**Menu:** 50+ rotating meals and snacks per week  
-**Delivery:** Two channels. Hand delivery in the Northeast (personal drivers). National shipping via FedEx and OnTrac for the rest of the US.  
-**B2B:** Corporate office meal delivery. Hospitals, senior care, and office teams. Growing channel.  
-**Cancellation:** No hidden fees. Cancel anytime. Weekly skip option available.  
-**Order deadline:** Wednesday 11:59 PM each week  
-**Shelf life:** 7 to 12 days refrigerated. Can be frozen.
+BrightBowl Meals is a fictional subscription meal-delivery scenario used for portfolio analysis.
 
-**Primary meal plan categories:**
-- Balance — general healthy eating
-- Weight Loss — under 500 calories per meal
-- Plant Based — vegan and dairy-free friendly
+**Model:** Weekly subscription meal delivery with multiple plans and delivery channels.  
+**Analysis period:** January 2023 through December 2024.  
+**Delivery channels:** Hand Delivery, National Shipping, and B2B Corporate.  
+**Subscription behavior:** New, Active, Skipped, and Churned states are modeled at weekly grain.  
+**Analysis areas:** Revenue, acquisition, retention, churn, skips, LTV, CAC, cohorts, and channel performance.
 
-**Dietary filters (applied on top of plan category):**
-- Gluten Friendly, Dairy Free, Low Sodium, Diabetic Friendly, Carb Conscious, Calorie Smart, Seafood Cautious, Soy Cautious, Nut Cautious, Egg Cautious
-
-**Enthusiast Program:** Gym owners and personal trainers in the Boston area refer clients. They receive free meals plus 10% commission on sales generated. This is a real acquisition channel embedded in the dataset.
-
-**Promo:** First 3 weeks get $40 off per week. This is in the dataset as DiscountAmount.
+The dataset is synthetic and designed to contain realistic analytical patterns rather than reproduce a real company's operational data.
 
 ---
 
-## The Upwork Job Post — What Was Asked For
+## Analytical Scope
 
-**Budget:** $8,000 to $15,000 full project. $30 to $50 per hour for the right candidate.  
-**Timeline:** 8 to 12 weeks.  
-**Hidden filter phrase:** Proposals must start with "The secret ingredient is data." Most applicants miss this.
+The project deliberately uses a weekly subscription grain because skips and lifecycle behavior are important signals for retention analysis. SQL is used for validation, exploratory analysis, and window-function exercises before the reporting layer is connected.
 
-**Four dashboards required:**
-1. Executive Overview — Phase 1 proof of concept (paid milestone)
-2. Marketing and Sales
-3. Operations and Logistics
-4. Customer Success and Retention
+Key analytical areas include:
 
-**Metrics explicitly named in the post:**
-- MRR (Monthly Recurring Revenue)
-- ARR (Annual Recurring Revenue)
-- LTV (Lifetime Value)
-- CAC (Customer Acquisition Cost)
-- Churn rate
-- Cohort analysis
-
-**Required skills:** Expert Power BI (or Tableau or Looker), strong SQL, ETL experience, proven subscription business experience, English communication, independent work.
-
-**Long-term potential:** They want an ongoing partner, not a one-off hire.
-
-**Building in Power BI.** Power BI is the tool of choice.
+- MRR and revenue trends
+- subscriber acquisition and churn
+- skip behavior and consecutive skips
+- cohort retention
+- LTV by acquisition channel
+- CAC and marketing-spend analysis
+- delivery-channel and plan performance
+- month-over-month revenue movement
 
 ---
+
 
 ## Dataset Design Decisions
 
