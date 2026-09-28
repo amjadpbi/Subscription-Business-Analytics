@@ -1,0 +1,8 @@
+PlanID,PlanName,MealsPerWeek,WeeklyPrice,PricePerMeal
+1,5 Meals / Week,5,80.0,16.0
+2,8 Meals / Week,8,112.0,14.0
+3,10 Meals / Week,10,130.0,13.0
+4,12 Meals / Week,12,150.0,12.5
+5,15 Meals / Week,15,180.0,12.0
+6,20 Meals / Week,20,220.0,11.0
+7,B2B Corporate,40,400.0,10.0

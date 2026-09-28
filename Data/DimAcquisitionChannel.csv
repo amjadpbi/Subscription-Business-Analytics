@@ -1,0 +1,7 @@
+AcquisitionChannelID,ChannelName,EstimatedCAC,LTVMultiplier
+1,Referral,15,1.4
+2,Enthusiast Program,20,1.5
+3,Paid Social,85,0.9
+4,Organic Search,35,1.2
+5,Gift Subscription,0,0.6
+6,B2B Corporate,150,2.5

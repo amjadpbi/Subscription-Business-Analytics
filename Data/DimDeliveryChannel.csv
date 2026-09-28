@@ -1,0 +1,4 @@
+DeliveryChannelID,ChannelName,DeliveryType,Region
+1,Hand Delivery,Personal,Northeast US
+2,National Shipping,Carrier,United States
+3,B2B Corporate,Corporate,Mixed
